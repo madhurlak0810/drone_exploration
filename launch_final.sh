@@ -22,21 +22,26 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(pwd)/install/drone_rl/share/drone_
 export ROS_DOMAIN_ID=0
 
 echo "🌍 Step 1: Launching Gazebo World..."
-# Start Gazebo server (headless for better performance)
-gzserver install/drone_rl/share/drone_rl/worlds/exploration_world.world --verbose &
+# Start Gazebo server with ROS factory plugins (headless for stability)
+echo "   🔧 Using headless mode to avoid GUI crashes..."
+ros2 launch gazebo_ros gazebo.launch.py gui:=false world:=install/drone_rl/share/drone_rl/worlds/exploration_world.world &
 GAZEBO_PID=$!
 
 # Give Gazebo time to initialize
-sleep 5
+sleep 8
+
+# Optional: Try to start GUI client separately (may crash, but won't affect system)
+echo "   🖥️  Attempting to start GUI client (optional)..."
+(gzclient --gui-client-plugin=libgazebo_ros_eol_gui.so > /dev/null 2>&1 &) || echo "   ⚠️  GUI client failed (continuing headless)"
 
 echo "✅ Gazebo world initialized"
 echo ""
 
 echo "🤖 Step 2: Spawning Drone Robot..."
-# Spawn the drone in Gazebo
+# Spawn the drone in Gazebo using the working simplified URDF
 ros2 run gazebo_ros spawn_entity.py \
     -entity drone \
-    -file install/drone_rl/share/drone_rl/urdf/drone.urdf.xacro \
+    -file install/drone_rl/share/drone_rl/urdf/drone_simple.urdf \
     -x 0.0 -y 0.0 -z 0.1 \
     -timeout 10.0 &
 SPAWN_PID=$!
@@ -47,7 +52,7 @@ echo ""
 
 echo "📡 Step 3: Starting Robot State Publisher..."
 ros2 run robot_state_publisher robot_state_publisher \
-    --ros-args -p robot_description:="$(cat install/drone_rl/share/drone_rl/urdf/drone.urdf.xacro)" \
+    --ros-args -p robot_description:="$(cat install/drone_rl/share/drone_rl/urdf/drone_simple.urdf)" \
     -p use_sim_time:=true &
 RSP_PID=$!
 

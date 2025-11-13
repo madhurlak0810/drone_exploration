@@ -19,4 +19,5 @@ launch/test_launch.py
 resource/drone_rl
 scripts/quick_start.sh
 urdf/drone.urdf.xacro
+urdf/drone_simple.urdf
 worlds/exploration_world.world
