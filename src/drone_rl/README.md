@@ -1,8 +1,8 @@
-# 🚁 Autonomous Drone Exploration with Reinforcement Learning
+#  Autonomous Drone Exploration with Reinforcement Learning
 
 A comprehensive ROS2 package for autonomous drone exploration using Q-learning and SLAM mapping.
 
-## 🌟 Features
+##  Features
 
 - **Q-Learning Agent**: Autonomous exploration using reinforcement learning
 - **SLAM Integration**: Real-time mapping with SLAM Toolbox
@@ -10,14 +10,14 @@ A comprehensive ROS2 package for autonomous drone exploration using Q-learning a
 - **Performance Metrics**: Real-time exploration tracking and analysis
 - **Modular Design**: Clean, extensible codebase
 
-## 📋 System Requirements
+##  System Requirements
 
 - **OS**: Ubuntu 22.04 LTS
 - **ROS2**: Humble Hawksbill
 - **Python**: 3.10+
 - **Gazebo**: Garden/Fortress
 
-## 🚀 Quick Installation
+##  Quick Installation
 
 ### 1. Install Dependencies
 
@@ -54,7 +54,7 @@ ros2 launch drone_rl sim_launch.py
 ros2 launch drone_rl sim_launch.py headless:=true rviz:=false
 ```
 
-## 📊 Monitor Performance
+##  Monitor Performance
 
 ```bash
 # Real-time metrics
@@ -64,7 +64,7 @@ ros2 topic echo /exploration_metrics
 ls ~/drone_ws/metrics/
 ```
 
-## 🎮 Manual Control (Optional)
+##  Manual Control (Optional)
 
 ```bash
 # Install teleop tools
@@ -74,7 +74,7 @@ sudo apt install ros-humble-teleop-twist-keyboard
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 
-## 🏗️ Architecture
+## ️ Architecture
 
 ```
 drone_rl/
@@ -95,7 +95,7 @@ drone_rl/
     └── quick_start.sh           # Quick setup script
 ```
 
-## ⚙️ Configuration
+## ️ Configuration
 
 Edit `config/drone_config.yaml` to customize:
 
@@ -103,7 +103,7 @@ Edit `config/drone_config.yaml` to customize:
 - **Environment settings**: sensor ranges, safety distances  
 - **Control parameters**: velocities, update frequencies
 
-## 📈 Key Parameters
+##  Key Parameters
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
@@ -112,21 +112,21 @@ Edit `config/drone_config.yaml` to customize:
 | `safety_distance` | 0.3m | Minimum obstacle distance |
 | `max_linear_velocity` | 0.5 m/s | Maximum forward speed |
 
-## 🔄 Experiment Workflow
+##  Experiment Workflow
 
 1. **Launch**: Start simulation with `ros2 launch drone_rl sim_launch.py`
 2. **Monitor**: Watch live mapping in RViz and metrics in terminal
 3. **Analyze**: Review saved metrics in `~/drone_ws/metrics/`
 4. **Iterate**: Adjust parameters and repeat
 
-## 📊 Metrics Tracked
+##  Metrics Tracked
 
 - **Coverage Percentage**: Amount of environment mapped
 - **Exploration Efficiency**: Coverage per unit time
 - **Collision Rate**: Safety performance
 - **Q-Learning Progress**: Reward accumulation and epsilon decay
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -147,7 +147,7 @@ ros2 topic list | grep -E "(scan|odom|map)"
 - Adjust `control_frequency` based on hardware capabilities
 - Monitor CPU/memory usage during long experiments
 
-## 🎯 Future Enhancements
+##  Future Enhancements
 
 - [ ] **PPO Implementation**: Upgrade to continuous action space
 - [ ] **3D Exploration**: Add altitude control for true 3D mapping
@@ -155,23 +155,3 @@ ros2 topic list | grep -E "(scan|odom|map)"
 - [ ] **Real Robot**: Hardware deployment scripts
 - [ ] **Advanced Rewards**: Sophisticated reward shaping
 
-## 📝 Publications & References
-
-This implementation is based on principles from:
-- Q-Learning for robotics navigation
-- SLAM Toolbox for real-time mapping
-- Gazebo simulation best practices
-
-## 🤝 Contributing
-
-Feel free to submit issues, feature requests, and pull requests!
-
-## 📄 License
-
-MIT License - see LICENSE file for details
-
----
-
-**Happy Exploring!** 🚁✨
-
-For questions or support, please open an issue in the repository.
