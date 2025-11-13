@@ -1,0 +1,48 @@
+{
+  "metrics_history": [],
+  "coverage_history": [],
+  "velocity_history": [
+    {
+      "timestamp": 37.98557996749878,
+      "linear_x": 0.2,
+      "linear_y": 0.0,
+      "angular_z": 0.0
+    },
+    {
+      "timestamp": 184.76146149635315,
+      "linear_x": 0.5,
+      "linear_y": 0.0,
+      "angular_z": 0.3
+    },
+    {
+      "timestamp": 185.76204204559326,
+      "linear_x": 0.5,
+      "linear_y": 0.0,
+      "angular_z": 0.3
+    },
+    {
+      "timestamp": 186.7620165348053,
+      "linear_x": 0.5,
+      "linear_y": 0.0,
+      "angular_z": 0.3
+    },
+    {
+      "timestamp": 187.7620186805725,
+      "linear_x": 0.5,
+      "linear_y": 0.0,
+      "angular_z": 0.3
+    },
+    {
+      "timestamp": 188.7620141506195,
+      "linear_x": 0.5,
+      "linear_y": 0.0,
+      "angular_z": 0.3
+    }
+  ],
+  "summary": {
+    "total_distance": 75.38821709156036,
+    "current_coverage": 0.0,
+    "exploration_efficiency": 0.0,
+    "collision_count": 0
+  }
+}

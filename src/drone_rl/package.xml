@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>drone_rl</name>
+  <version>1.0.0</version>
+  <description>Autonomous drone exploration using reinforcement learning with RTAB-Map SLAM</description>
+  <maintainer email="user@example.com">drone_rl</maintainer>
+  <license>MIT</license>
+
+  <!-- Dependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Core ROS2 dependencies -->
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_geometry_msgs</depend>
+
+  <!-- Gazebo simulation -->
+  <depend>gazebo_ros</depend>
+  <depend>gazebo_ros_pkgs</depend>
+  <depend>gazebo_plugins</depend>
+
+  <!-- SLAM alternatives (remove hard rtabmap dependency) -->
+  <depend>slam_toolbox</depend>
+  <!-- <depend>rtabmap_ros</depend> -->
+  <!-- <depend>rtabmap_msgs</depend> -->
+  <!-- <depend>rtabmap_conversions</depend> -->
+  <!-- <depend>rtabmap_launch</depend> -->
+
+  <!-- Navigation and control -->
+  <depend>robot_state_publisher</depend>
+  <depend>joint_state_publisher</depend>
+  <depend>xacro</depend>
+
+  <!-- Launch files -->
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
+
+  <!-- Test dependencies -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,85 @@
+# Drone RL Configuration
+drone_rl:
+  # Q-Learning parameters
+  learning_rate: 0.1
+  discount_factor: 0.95
+  epsilon: 0.3
+  epsilon_decay: 0.995
+  epsilon_min: 0.01
+  
+  # Environment parameters
+  max_linear_velocity: 0.5    # m/s
+  max_angular_velocity: 1.0   # rad/s
+  safety_distance: 0.3        # m
+  sensor_range: 10.0          # m
+  
+  # State space discretization
+  n_distance_states: 10
+  n_direction_states: 8
+  n_actions: 6
+  
+  # Reward function
+  rewards:
+    exploration: 10.0         # reward for exploring new area
+    movement: 1.0             # reward for movement
+    collision: -20.0          # penalty for collision
+    near_collision: -5.0      # penalty for near collision
+    idle: -1.0                # penalty for staying idle
+  
+  # Control parameters
+  control_frequency: 10.0     # Hz
+  save_frequency: 30.0        # seconds
+  
+  # File paths
+  q_table_path: "~/drone_ws/q_table.npy"
+  metrics_dir: "~/drone_ws/metrics"
+  
+# RTAB-Map Configuration
+rtabmap:
+  frame_id: "base_link"
+  map_frame_id: "map"
+  odom_frame_id: "odom"
+  
+  # SLAM parameters
+  resolution: 0.05            # m per pixel
+  max_range: 10.0            # m
+  
+  # Memory management
+  memory_thr: 0               # 0=infinite memory
+  rtabmap_detection_rate: 1.0
+  
+# Gazebo Simulation Parameters
+simulation:
+  world_file: "exploration_world.world"
+  use_sim_time: true
+  
+  # Physics
+  physics:
+    real_time_factor: 1.0
+    max_step_size: 0.001
+    
+  # Sensors
+  lidar:
+    update_rate: 10.0
+    samples: 720
+    resolution: 1.0
+    min_angle: -3.14159
+    max_angle: 3.14159
+    min_range: 0.1
+    max_range: 10.0
+    
+  imu:
+    update_rate: 100.0
+    
+  camera:
+    update_rate: 30.0
+    width: 640
+    height: 480
+    fov: 1.047  # 60 degrees
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARN, ERROR
+  console_output: true
+  file_output: true
+  log_dir: "~/drone_ws/logs"
