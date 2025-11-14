@@ -11,12 +11,10 @@ from typing import Tuple, Optional
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, DurabilityPolicy, ReliabilityPolicy
-from geometry_msgs.msg import Twist, PoseWithCovarianceStamped
+from geometry_msgs.msg import Twist, PoseWithCovarianceStamped, Pose
 from sensor_msgs.msg import LaserScan
 from nav_msgs.msg import OccupancyGrid, Odometry
 from std_msgs.msg import Float32MultiArray
-import tf2_ros
-from tf2_geometry_msgs import do_transform_pose
 import math
 import time
 
@@ -68,18 +66,14 @@ class QLearningAgent(Node):
         self.create_subscription(OccupancyGrid, '/rtabmap/grid_map', self.map_callback, qos_profile)
         self.create_subscription(Odometry, '/odom', self.odom_callback, 10)
         
-        # TF2 for pose transformations
-        self.tf_buffer = tf2_ros.Buffer()
-        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
-        
         # Environment state
         self.current_scan = None
         self.occupancy_grid = None
         self.current_pose = None
         self.previous_position = None
         
-        # Control timer
-        self.control_timer = self.create_timer(0.1, self.control_loop)  # 10 Hz
+        # Control timer - slower for stable navigation
+        self.control_timer = self.create_timer(0.5, self.control_loop)  # 2 Hz
         
         # Save Q-table periodically
         self.save_timer = self.create_timer(30.0, self.save_q_table)  # Every 30 seconds
@@ -103,6 +97,10 @@ class QLearningAgent(Node):
         
     def control_loop(self):
         """Main control loop for Q-learning"""
+        # Wait for odometry data
+        if self.current_scan is None or self.current_pose is None:
+            return
+            
         if self.current_scan is None or self.current_pose is None:
             return
             
@@ -219,25 +217,49 @@ class QLearningAgent(Node):
             return int(np.argmax(self.q_table[state]))
 
     def execute_action(self, action: int):
-        """Execute the chosen action"""
+        """Execute the chosen action with conservative speeds and collision avoidance"""
         twist = Twist()
         
-        # Action mapping
-        if action == 0:    # Move forward
-            twist.linear.x = 0.3
-        elif action == 1:  # Turn left and move
-            twist.linear.x = 0.2
-            twist.angular.z = 0.5
-        elif action == 2:  # Turn right and move
-            twist.linear.x = 0.2
-            twist.angular.z = -0.5
-        elif action == 3:  # Turn left sharp
-            twist.angular.z = 1.0
-        elif action == 4:  # Turn right sharp
-            twist.angular.z = -1.0
-        elif action == 5:  # Stop/hover
+        # Check for immediate collision danger
+        obstacle_ahead = False
+        min_front_distance = float('inf')
+        
+        if self.current_scan is not None:
+            ranges = np.array(self.current_scan.ranges)
+            ranges = np.where(np.isfinite(ranges), ranges, self.current_scan.range_max)
+            
+            # Check front-facing sensors (approximately 60 degrees ahead)
+            front_angles = len(ranges) // 6  # 60 degrees out of 360
+            front_left = ranges[:front_angles]
+            front_right = ranges[-front_angles:]
+            front_ranges = np.concatenate([front_left, front_right])
+            
+            min_front_distance = np.min(front_ranges)
+            if min_front_distance < 0.5:  # Emergency stop threshold
+                obstacle_ahead = True
+        
+        # Force stop if obstacle too close
+        if obstacle_ahead and action in [0, 1, 2]:  # Forward movement actions
             twist.linear.x = 0.0
             twist.angular.z = 0.0
+            self.get_logger().warn(f"Emergency stop: obstacle at {min_front_distance:.2f}m")
+        else:
+            # Action mapping with slower, safer speeds
+            if action == 0:    # Move forward
+                twist.linear.x = 0.15  # Reduced from 0.3
+            elif action == 1:  # Turn left and move
+                twist.linear.x = 0.1   # Reduced from 0.2
+                twist.angular.z = 0.3  # Reduced from 0.5
+            elif action == 2:  # Turn right and move
+                twist.linear.x = 0.1   # Reduced from 0.2
+                twist.angular.z = -0.3 # Reduced from -0.5
+            elif action == 3:  # Turn left sharp
+                twist.angular.z = 0.6  # Reduced from 1.0
+            elif action == 4:  # Turn right sharp
+                twist.angular.z = -0.6 # Reduced from -1.0
+            elif action == 5:  # Stop/hover
+                twist.linear.x = 0.0
+                twist.angular.z = 0.0
             
         self.cmd_pub.publish(twist)
 
@@ -245,17 +267,17 @@ class QLearningAgent(Node):
         """Calculate reward based on current state and action"""
         reward = 0.0
         
-        # Check for collision (close obstacle)
+        # Check for collision (close obstacle) with increased safety margins
         if self.current_scan is not None:
             ranges = np.array(self.current_scan.ranges)
             ranges = np.where(np.isfinite(ranges), ranges, self.current_scan.range_max)
             min_distance = np.min(ranges)
             
-            if min_distance < 0.3:  # Collision threshold
-                reward -= 20.0
+            if min_distance < 0.6:  # Increased collision threshold for safety
+                reward -= 30.0  # Higher penalty for getting too close
                 self.collision_count += 1
-            elif min_distance < 0.5:  # Near collision
-                reward -= 5.0
+            elif min_distance < 1.0:  # Increased near collision threshold
+                reward -= 8.0   # Moderate penalty for being close
                 
         # Reward for exploration (new area discovered)
         if self.occupancy_grid is not None and self.previous_position is not None and self.current_pose is not None:
