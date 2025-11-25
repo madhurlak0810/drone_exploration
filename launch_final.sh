@@ -64,12 +64,13 @@ echo "🗺️ Step 4: Initializing SLAM System..."
 ros2 run slam_toolbox async_slam_toolbox_node \
     --ros-args \
     -p use_sim_time:=true \
-    -p base_frame:=base_link \
+    -p base_frame:=base_footprint \
     -p odom_frame:=odom \
     -p map_frame:=map \
     -p scan_topic:=/scan \
     -p resolution:=0.05 \
-    -p max_laser_range:=10.0 &
+    -p max_laser_range:=10.0 \
+    -p message_filter_queue_size:=200 &
 SLAM_PID=$!
 
 sleep 3

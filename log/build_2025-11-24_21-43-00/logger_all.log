@@ -1,0 +1,170 @@
+[0.068s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'drone_rl', '--symlink-install']
+[0.068s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['drone_rl'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x77d0e24967a0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x77d0e2496350>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x77d0e2496350>>)
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.194s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.194s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/maddy/drone_ws'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.194s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.210s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extensions ['ignore', 'ignore_ament_install']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extension 'ignore'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extension 'ignore_ament_install'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extensions ['colcon_pkg']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extension 'colcon_pkg'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extensions ['colcon_meta']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extension 'colcon_meta'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extensions ['ros']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extension 'ros'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extensions ['cmake', 'python']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extension 'cmake'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extension 'python'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extensions ['python_setup_py']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(metrics) by extension 'python_setup_py'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_rl) by extensions ['ignore', 'ignore_ament_install']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_rl) by extension 'ignore'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_rl) by extension 'ignore_ament_install'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_rl) by extensions ['colcon_pkg']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_rl) by extension 'colcon_pkg'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_rl) by extensions ['colcon_meta']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_rl) by extension 'colcon_meta'
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_rl) by extensions ['ros']
+[0.211s] Level 1:colcon.colcon_core.package_identification:_identify(src/drone_rl) by extension 'ros'
+[0.213s] DEBUG:colcon.colcon_core.package_identification:Package 'src/drone_rl' with type 'ros.ament_python' and name 'drone_rl'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) by extensions ['ignore', 'ignore_ament_install']
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) by extension 'ignore'
+[0.214s] Level 1:colcon.colcon_core.package_identification:_identify(src/log) ignored
+[0.214s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.214s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.214s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.214s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.214s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.227s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.227s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.228s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/maddy/drone_ws/install
+[0.229s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/maddy/drone_exploration_ws/install
+[0.230s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 401 installed packages in /opt/ros/humble
+[0.231s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'drone_rl' build argument 'cmake_args' from command line to 'None'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'drone_rl' build argument 'cmake_target' from command line to 'None'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'drone_rl' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'drone_rl' build argument 'cmake_clean_cache' from command line to 'False'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'drone_rl' build argument 'cmake_clean_first' from command line to 'False'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'drone_rl' build argument 'cmake_force_configure' from command line to 'False'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'drone_rl' build argument 'ament_cmake_args' from command line to 'None'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'drone_rl' build argument 'catkin_cmake_args' from command line to 'None'
+[0.259s] Level 5:colcon.colcon_core.verb:set package 'drone_rl' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.259s] DEBUG:colcon.colcon_core.verb:Building package 'drone_rl' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/maddy/drone_ws/build/drone_rl', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/maddy/drone_ws/install/drone_rl', 'merge_install': False, 'path': '/home/maddy/drone_ws/src/drone_rl', 'symlink_install': True, 'test_result_base': None}
+[0.259s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.260s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.260s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/maddy/drone_ws/src/drone_rl' with build type 'ament_python'
+[0.260s] Level 1:colcon.colcon_core.shell:create_environment_hook('drone_rl', 'ament_prefix_path')
+[0.262s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.262s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/ament_prefix_path.ps1'
+[0.262s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/ament_prefix_path.dsv'
+[0.262s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/ament_prefix_path.sh'
+[0.263s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.263s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.462s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/maddy/drone_ws/src/drone_rl'
+[0.462s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.462s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.798s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/ament_index/resource_index/packages/drone_rl
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/drone_rl/package.xml
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/drone_rl/launch/sim_launch.py
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/drone_rl/launch/test_launch.py
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/drone_rl/config/drone_config.yaml
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/drone_rl/config/drone_exploration.rviz
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/drone_rl/urdf/drone.urdf.xacro
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/drone_rl/urdf/drone_simple.urdf
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/drone_rl/worlds/exploration_world.world
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/share/drone_rl/scripts/quick_start.sh
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/bin/environment_interface
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/bin/exploration_metrics
+[0.799s] DEBUG:colcon.colcon_core.task.python.build:While undoing a previous installation files outside the Python library path are being ignored: /home/maddy/drone_ws/install/drone_rl/bin/q_learning_agent
+[0.801s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/maddy/drone_ws/build/drone_rl': PYTHONPATH=/home/maddy/drone_ws/build/drone_rl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/maddy/drone_ws/build/drone_rl/build --no-deps symlink_data --force
+[1.185s] Level 1:colcon.colcon_core.shell:create_environment_hook('drone_rl', 'pythonpath_develop')
+[1.185s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/build/drone_rl/share/drone_rl/hook/pythonpath_develop.ps1'
+[1.185s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/maddy/drone_ws/build/drone_rl' returned '0': PYTHONPATH=/home/maddy/drone_ws/build/drone_rl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/maddy/drone_ws/build/drone_rl/build --no-deps symlink_data --force
+[1.186s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maddy/drone_ws/build/drone_rl/share/drone_rl/hook/pythonpath_develop.dsv'
+[1.186s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/build/drone_rl/share/drone_rl/hook/pythonpath_develop.sh'
+[1.188s] Level 1:colcon.colcon_core.environment:checking '/home/maddy/drone_ws/install/drone_rl' for CMake module files
+[1.188s] Level 1:colcon.colcon_core.environment:checking '/home/maddy/drone_ws/install/drone_rl' for CMake config files
+[1.189s] Level 1:colcon.colcon_core.environment:checking '/home/maddy/drone_ws/install/drone_rl/lib'
+[1.189s] Level 1:colcon.colcon_core.environment:checking '/home/maddy/drone_ws/install/drone_rl/bin'
+[1.189s] Level 1:colcon.colcon_core.shell:create_environment_hook('drone_rl', 'path')
+[1.189s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/path.ps1'
+[1.189s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/path.dsv'
+[1.190s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/path.sh'
+[1.190s] Level 1:colcon.colcon_core.environment:checking '/home/maddy/drone_ws/install/drone_rl/lib/pkgconfig/drone_rl.pc'
+[1.190s] Level 1:colcon.colcon_core.environment:checking '/home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages'
+[1.190s] Level 1:colcon.colcon_core.shell:create_environment_hook('drone_rl', 'pythonpath')
+[1.190s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/pythonpath.ps1'
+[1.190s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/pythonpath.dsv'
+[1.191s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/pythonpath.sh'
+[1.191s] Level 1:colcon.colcon_core.environment:checking '/home/maddy/drone_ws/install/drone_rl/bin'
+[1.191s] Level 1:colcon.colcon_core.shell:create_environment_hook('drone_rl', 'pythonscriptspath')
+[1.191s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/pythonscriptspath.ps1'
+[1.191s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/pythonscriptspath.dsv'
+[1.192s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/hook/pythonscriptspath.sh'
+[1.192s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(drone_rl)
+[1.192s] INFO:colcon.colcon_core.shell:Creating package script '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/package.ps1'
+[1.193s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/package.dsv'
+[1.193s] INFO:colcon.colcon_core.shell:Creating package script '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/package.sh'
+[1.194s] INFO:colcon.colcon_core.shell:Creating package script '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/package.bash'
+[1.195s] INFO:colcon.colcon_core.shell:Creating package script '/home/maddy/drone_ws/install/drone_rl/share/drone_rl/package.zsh'
+[1.195s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/maddy/drone_ws/install/drone_rl/share/colcon-core/packages/drone_rl)
+[1.195s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.195s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.196s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.196s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.200s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.200s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.200s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.201s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.202s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/maddy/drone_ws/install/local_setup.ps1'
+[1.202s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/maddy/drone_ws/install/_local_setup_util_ps1.py'
+[1.203s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/maddy/drone_ws/install/setup.ps1'
+[1.204s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/maddy/drone_ws/install/local_setup.sh'
+[1.204s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/maddy/drone_ws/install/_local_setup_util_sh.py'
+[1.204s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/maddy/drone_ws/install/setup.sh'
+[1.205s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/maddy/drone_ws/install/local_setup.bash'
+[1.205s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/maddy/drone_ws/install/setup.bash'
+[1.206s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/maddy/drone_ws/install/local_setup.zsh'
+[1.206s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/maddy/drone_ws/install/setup.zsh'

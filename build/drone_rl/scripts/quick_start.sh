@@ -1,0 +1,1 @@
+/home/maddy/drone_ws/src/drone_rl/scripts/quick_start.sh

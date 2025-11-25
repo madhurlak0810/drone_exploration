@@ -1,0 +1,41 @@
+running develop
+Removing /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone-rl.egg-link (link to .)
+running egg_info
+writing ../../build/drone_rl/drone_rl.egg-info/PKG-INFO
+writing dependency_links to ../../build/drone_rl/drone_rl.egg-info/dependency_links.txt
+writing entry points to ../../build/drone_rl/drone_rl.egg-info/entry_points.txt
+writing requirements to ../../build/drone_rl/drone_rl.egg-info/requires.txt
+writing top-level names to ../../build/drone_rl/drone_rl.egg-info/top_level.txt
+reading manifest file '../../build/drone_rl/drone_rl.egg-info/SOURCES.txt'
+writing manifest file '../../build/drone_rl/drone_rl.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+creating /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl
+copying /home/maddy/drone_ws/build/drone_rl/build/lib/drone_rl/environment_interface.py -> /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl
+copying /home/maddy/drone_ws/build/drone_rl/build/lib/drone_rl/q_learning_agent.py -> /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl
+copying /home/maddy/drone_ws/build/drone_rl/build/lib/drone_rl/exploration_metrics.py -> /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl
+copying /home/maddy/drone_ws/build/drone_rl/build/lib/drone_rl/__init__.py -> /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl
+byte-compiling /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl/environment_interface.py to environment_interface.cpython-310.pyc
+byte-compiling /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl/q_learning_agent.py to q_learning_agent.cpython-310.pyc
+byte-compiling /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl/exploration_metrics.py to exploration_metrics.cpython-310.pyc
+byte-compiling /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl/__init__.py to __init__.cpython-310.pyc
+running install_data
+copying resource/drone_rl -> /home/maddy/drone_ws/install/drone_rl/share/ament_index/resource_index/packages
+copying package.xml -> /home/maddy/drone_ws/install/drone_rl/share/drone_rl
+copying launch/sim_launch.py -> /home/maddy/drone_ws/install/drone_rl/share/drone_rl/launch
+copying launch/test_launch.py -> /home/maddy/drone_ws/install/drone_rl/share/drone_rl/launch
+copying config/drone_config.yaml -> /home/maddy/drone_ws/install/drone_rl/share/drone_rl/config
+copying config/drone_exploration.rviz -> /home/maddy/drone_ws/install/drone_rl/share/drone_rl/config
+copying urdf/drone.urdf.xacro -> /home/maddy/drone_ws/install/drone_rl/share/drone_rl/urdf
+copying urdf/drone_simple.urdf -> /home/maddy/drone_ws/install/drone_rl/share/drone_rl/urdf
+copying worlds/exploration_world.world -> /home/maddy/drone_ws/install/drone_rl/share/drone_rl/worlds
+copying scripts/quick_start.sh -> /home/maddy/drone_ws/install/drone_rl/share/drone_rl/scripts
+running install_egg_info
+Copying ../../build/drone_rl/drone_rl.egg-info to /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl-1.0.0-py3.10.egg-info
+running install_scripts
+Installing environment_interface script to /home/maddy/drone_ws/install/drone_rl/bin
+Installing exploration_metrics script to /home/maddy/drone_ws/install/drone_rl/bin
+Installing q_learning_agent script to /home/maddy/drone_ws/install/drone_rl/bin
+writing list of installed files to '/home/maddy/drone_ws/build/drone_rl/install.log'

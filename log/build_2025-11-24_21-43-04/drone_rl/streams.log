@@ -1,0 +1,19 @@
+[0.528s] Invoking command in '/home/maddy/drone_ws/build/drone_rl': PYTHONPATH=/home/maddy/drone_ws/build/drone_rl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/maddy/drone_ws/build/drone_rl/build --no-deps symlink_data
+[0.717s] running develop
+[0.851s] running egg_info
+[0.852s] writing drone_rl.egg-info/PKG-INFO
+[0.852s] writing dependency_links to drone_rl.egg-info/dependency_links.txt
+[0.852s] writing entry points to drone_rl.egg-info/entry_points.txt
+[0.852s] writing requirements to drone_rl.egg-info/requires.txt
+[0.852s] writing top-level names to drone_rl.egg-info/top_level.txt
+[0.853s] reading manifest file 'drone_rl.egg-info/SOURCES.txt'
+[0.854s] writing manifest file 'drone_rl.egg-info/SOURCES.txt'
+[0.854s] running build_ext
+[0.855s] Creating /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone-rl.egg-link (link to .)
+[0.856s] Installing environment_interface script to /home/maddy/drone_ws/install/drone_rl/bin
+[0.856s] Installing exploration_metrics script to /home/maddy/drone_ws/install/drone_rl/bin
+[0.856s] Installing q_learning_agent script to /home/maddy/drone_ws/install/drone_rl/bin
+[0.856s] 
+[0.856s] Installed /home/maddy/drone_ws/build/drone_rl
+[0.857s] running symlink_data
+[0.887s] Invoked command in '/home/maddy/drone_ws/build/drone_rl' returned '0': PYTHONPATH=/home/maddy/drone_ws/build/drone_rl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/maddy/drone_ws/build/drone_rl/build --no-deps symlink_data

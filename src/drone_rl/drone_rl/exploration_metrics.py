@@ -110,11 +110,27 @@ class ExplorationMetrics(Node):
         # Initialize baseline on first map
         if self.initial_unknown_cells == 0:
             self.initial_unknown_cells = unknown_cells
+            self.get_logger().info(f"Initial map analysis: {unknown_cells} unknown, {free_cells} free, {occupied_cells} occupied cells")
             
         # Calculate coverage percentage
+        explored_cells = 0  # Initialize explored_cells
         if self.initial_unknown_cells > 0:
-            explored_cells = self.initial_unknown_cells - unknown_cells
+            explored_cells = max(0, self.initial_unknown_cells - unknown_cells)
             self.current_coverage = (explored_cells / self.initial_unknown_cells) * 100.0
+            
+            # Alternative coverage based on known cells (more responsive)
+            known_cell_coverage = (known_cells / self.total_map_cells) * 100.0
+            
+            # Use the higher of the two coverage measures for more responsive feedback
+            self.current_coverage = max(self.current_coverage, known_cell_coverage)
+        else:
+            # If no initial unknown cells, calculate based on known cells vs total
+            if self.total_map_cells > 0:
+                self.current_coverage = (known_cells / self.total_map_cells) * 100.0
+                
+        # Debug logging every 20 map updates instead of 50
+        if len(self.coverage_history) % 20 == 0:
+            self.get_logger().info(f"Coverage debug: {explored_cells} explored of {self.initial_unknown_cells} initial, Known cells: {known_cells}/{self.total_map_cells}, Current: {self.current_coverage:.1f}%")
         
         # Store coverage history
         timestamp = time.time() - self.start_time

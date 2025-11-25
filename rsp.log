@@ -1,0 +1,7 @@
+nohup: ignoring input
+[WARN] [1763079587.022290610] [kdl_parser]: The root link base_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.  As a workaround, you can add an extra dummy link to your URDF.
+[INFO] [1763079587.022440782] [robot_state_publisher]: got segment base_link
+[INFO] [1763079587.022514301] [robot_state_publisher]: got segment imu_link
+[INFO] [1763079587.022531804] [robot_state_publisher]: got segment left_wheel
+[INFO] [1763079587.022545529] [robot_state_publisher]: got segment lidar_link
+[INFO] [1763079587.022561059] [robot_state_publisher]: got segment right_wheel

@@ -14,6 +14,9 @@
     <color rgba="0.1 0.1 0.8 1"/>
   </material>
 
+  <!-- Dummy root link to satisfy KDL (no inertia) -->
+  <link name="base_footprint"/>
+
   <!-- Base link (drone body) -->
   <link name="base_link">
     <inertial>
@@ -39,6 +42,13 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- Joint connecting dummy root to actual base -->
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </joint>
 
   <!-- LiDAR sensor -->
   <link name="lidar_link">
@@ -69,7 +79,7 @@
   <joint name="lidar_joint" type="fixed">
     <parent link="base_link"/>
     <child link="lidar_link"/>
-    <origin xyz="0 0 0.08" rpy="0 0 0"/>
+    <origin xyz="0 0 0.15" rpy="0 0 0"/>
   </joint>
 
   <!-- IMU sensor -->
@@ -231,7 +241,7 @@
       <publish_odom_tf>true</publish_odom_tf>
       <publish_wheel_tf>true</publish_wheel_tf>
       <odometry_frame>odom</odometry_frame>
-      <robot_base_frame>base_link</robot_base_frame>
+      <robot_base_frame>base_footprint</robot_base_frame>
       <wheel_separation>0.3</wheel_separation>
       <wheel_diameter>0.05</wheel_diameter>
       <max_wheel_torque>20</max_wheel_torque>

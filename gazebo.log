@@ -1,0 +1,17 @@
+nohup: ignoring input
+[INFO] [launch]: All log files can be found below /home/maddy/.ros/log/2025-11-13-19-51-55-631031-pop-os-344445
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gzserver-1]: process started with pid [344451]
+[gzserver-1] [INFO] [1763081516.446529381] [gazebo.gazebo_ros_state]: Publishing states of gazebo models at [/gazebo/model_states]
+[gzserver-1] [INFO] [1763081516.446890630] [gazebo.gazebo_ros_state]: Publishing states of gazebo links at [/gazebo/link_states]
+[gzserver-1] [INFO] [1763081541.493193673] [imu_plugin]: <initial_orientation_as_reference> is unset, using default value of false to comply with REP 145 (world as orientation reference)
+[gzserver-1] [INFO] [1763081541.658484380] [gazebo_ros_diff_drive]: Wheel pair 1 separation set to [0.300000m]
+[gzserver-1] [INFO] [1763081541.658526469] [gazebo_ros_diff_drive]: Wheel pair 1 diameter set to [0.050000m]
+[gzserver-1] [INFO] [1763081541.659214133] [gazebo_ros_diff_drive]: Subscribed to [/cmd_vel]
+[gzserver-1] [INFO] [1763081695.506658790] [imu_plugin]: <initial_orientation_as_reference> is unset, using default value of false to comply with REP 145 (world as orientation reference)
+[gzserver-1] [INFO] [1763081695.566656299] [gazebo_ros_diff_drive]: Wheel pair 1 separation set to [0.300000m]
+[gzserver-1] [INFO] [1763081695.566684502] [gazebo_ros_diff_drive]: Wheel pair 1 diameter set to [0.050000m]
+[gzserver-1] [INFO] [1763081695.566829254] [gazebo_ros_diff_drive]: Subscribed to [/cmd_vel]
+[gzserver-1] [INFO] [1763081695.568535564] [gazebo_ros_diff_drive]: Advertise odometry on [/odom]
+[gzserver-1] [INFO] [1763081695.570000350] [gazebo_ros_diff_drive]: Publishing odom transforms between [odom] and [base_link]
+[gzserver-1] [INFO] [1763081695.570025317] [gazebo_ros_diff_drive]: Publishing wheel transforms between [base_link], [left_wheel_joint] and [right_wheel_joint]

@@ -1,0 +1,26 @@
+[0.511s] Invoking command in '/home/maddy/drone_ws/src/drone_rl': PYTHONPATH=/home/maddy/drone_ws/build/drone_rl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_rl build --build-base /home/maddy/drone_ws/build/drone_rl/build install --record /home/maddy/drone_ws/build/drone_rl/install.log --single-version-externally-managed install_data
+[0.678s] running egg_info
+[0.678s] writing ../../build/drone_rl/drone_rl.egg-info/PKG-INFO
+[0.679s] writing dependency_links to ../../build/drone_rl/drone_rl.egg-info/dependency_links.txt
+[0.679s] writing entry points to ../../build/drone_rl/drone_rl.egg-info/entry_points.txt
+[0.679s] writing requirements to ../../build/drone_rl/drone_rl.egg-info/requires.txt
+[0.679s] writing top-level names to ../../build/drone_rl/drone_rl.egg-info/top_level.txt
+[0.680s] reading manifest file '../../build/drone_rl/drone_rl.egg-info/SOURCES.txt'
+[0.680s] writing manifest file '../../build/drone_rl/drone_rl.egg-info/SOURCES.txt'
+[0.680s] running build
+[0.680s] running build_py
+[0.680s] copying drone_rl/q_learning_agent.py -> /home/maddy/drone_ws/build/drone_rl/build/lib/drone_rl
+[0.681s] running install
+[0.681s] running install_lib
+[0.681s] copying /home/maddy/drone_ws/build/drone_rl/build/lib/drone_rl/q_learning_agent.py -> /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl
+[0.682s] byte-compiling /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl/q_learning_agent.py to q_learning_agent.cpython-310.pyc
+[0.685s] running install_data
+[0.685s] running install_egg_info
+[0.686s] removing '/home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl-1.0.0-py3.10.egg-info' (and everything under it)
+[0.686s] Copying ../../build/drone_rl/drone_rl.egg-info to /home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages/drone_rl-1.0.0-py3.10.egg-info
+[0.687s] running install_scripts
+[0.700s] Installing environment_interface script to /home/maddy/drone_ws/install/drone_rl/bin
+[0.700s] Installing exploration_metrics script to /home/maddy/drone_ws/install/drone_rl/bin
+[0.700s] Installing q_learning_agent script to /home/maddy/drone_ws/install/drone_rl/bin
+[0.700s] writing list of installed files to '/home/maddy/drone_ws/build/drone_rl/install.log'
+[0.722s] Invoked command in '/home/maddy/drone_ws/src/drone_rl' returned '0': PYTHONPATH=/home/maddy/drone_ws/build/drone_rl/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/maddy/drone_ws/install/drone_rl/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/drone_rl build --build-base /home/maddy/drone_ws/build/drone_rl/build install --record /home/maddy/drone_ws/build/drone_rl/install.log --single-version-externally-managed install_data

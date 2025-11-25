@@ -1,0 +1,4 @@
+[INFO] [launch]: All log files can be found below /home/maddy/.ros/log/2025-11-13-19-51-59-216278-pop-os-344683
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gzserver-1]: process started with pid [344685]
+[ERROR] [gzserver-1]: process has died [pid 344685, exit code 255, cmd 'gzserver install/drone_rl/share/drone_rl/worlds/exploration_world.world -slibgazebo_ros_init.so -slibgazebo_ros_factory.so -slibgazebo_ros_force_system.so'].
