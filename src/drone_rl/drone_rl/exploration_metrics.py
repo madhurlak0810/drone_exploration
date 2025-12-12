@@ -85,12 +85,12 @@ class ExplorationMetrics(Node):
         if len(msg.data) >= 5:
             timestamp = time.time() - self.start_time
             metrics = {
-                'timestamp': timestamp,
-                'total_reward': msg.data[0],
-                'step_count': msg.data[1],
-                'collision_count': msg.data[2],
-                'new_areas_explored': msg.data[3],
-                'epsilon': msg.data[4]
+                'timestamp': float(timestamp),
+                'total_reward': float(msg.data[0]),
+                'step_count': int(msg.data[1]),
+                'collision_count': int(msg.data[2]),
+                'new_areas_explored': float(msg.data[3]),
+                'epsilon': float(msg.data[4])
             }
             self.metrics_history.append(metrics)
             self.collision_count = int(msg.data[2])
@@ -132,24 +132,24 @@ class ExplorationMetrics(Node):
         if len(self.coverage_history) % 20 == 0:
             self.get_logger().info(f"Coverage debug: {explored_cells} explored of {self.initial_unknown_cells} initial, Known cells: {known_cells}/{self.total_map_cells}, Current: {self.current_coverage:.1f}%")
         
-        # Store coverage history
+        # Store coverage history with proper type conversion
         timestamp = time.time() - self.start_time
         self.coverage_history.append({
-            'timestamp': timestamp,
-            'coverage_percentage': self.current_coverage,
-            'unknown_cells': unknown_cells,
-            'free_cells': free_cells,
-            'occupied_cells': occupied_cells
+            'timestamp': float(timestamp),
+            'coverage_percentage': float(self.current_coverage),
+            'unknown_cells': int(unknown_cells),
+            'free_cells': int(free_cells),
+            'occupied_cells': int(occupied_cells)
         })
     
     def velocity_callback(self, msg: Twist):
         """Track velocity commands for distance calculation"""
         timestamp = time.time() - self.start_time
         velocity_data = {
-            'timestamp': timestamp,
-            'linear_x': msg.linear.x,
-            'linear_y': msg.linear.y,
-            'angular_z': msg.angular.z
+            'timestamp': float(timestamp),
+            'linear_x': float(msg.linear.x),
+            'linear_y': float(msg.linear.y),
+            'angular_z': float(msg.angular.z)
         }
         self.velocity_history.append(velocity_data)
         
@@ -187,26 +187,44 @@ class ExplorationMetrics(Node):
             f"  Epsilon: {latest_metrics['epsilon']:.3f}"
         )
     
+    def convert_numpy_types(self, obj):
+        """Convert numpy types to native Python types for JSON serialization"""
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        elif isinstance(obj, dict):
+            return {key: self.convert_numpy_types(value) for key, value in obj.items()}
+        elif isinstance(obj, list):
+            return [self.convert_numpy_types(item) for item in obj]
+        else:
+            return obj
+
     def save_metrics(self):
         """Save metrics to files for analysis"""
         try:
             save_dir = os.path.expanduser("~/drone_ws/metrics")
             os.makedirs(save_dir, exist_ok=True)
             
+            # Convert data to JSON-serializable format
+            metrics_data = {
+                'metrics_history': self.convert_numpy_types(self.metrics_history),
+                'coverage_history': self.convert_numpy_types(self.coverage_history),
+                'velocity_history': self.convert_numpy_types(self.velocity_history[-100:]),  # Keep last 100 entries
+                'summary': {
+                    'total_distance': float(self.total_distance_traveled),
+                    'current_coverage': float(self.current_coverage),
+                    'exploration_efficiency': float(self.exploration_efficiency),
+                    'collision_count': int(self.collision_count)
+                }
+            }
+            
             # Save raw metrics
             metrics_file = os.path.join(save_dir, "exploration_metrics.json")
             with open(metrics_file, 'w') as f:
-                json.dump({
-                    'metrics_history': self.metrics_history,
-                    'coverage_history': self.coverage_history,
-                    'velocity_history': self.velocity_history[-100:],  # Keep last 100 entries
-                    'summary': {
-                        'total_distance': self.total_distance_traveled,
-                        'current_coverage': self.current_coverage,
-                        'exploration_efficiency': self.exploration_efficiency,
-                        'collision_count': self.collision_count
-                    }
-                }, f, indent=2)
+                json.dump(metrics_data, f, indent=2)
             
             self.get_logger().info(f"Metrics saved to {metrics_file}")
             
