@@ -1,0 +1,95 @@
+# Docker Compose Configuration for Drone Exploration
+# Provides both headless and GUI-enabled deployment options
+
+version: '3.8'
+
+services:
+  # Main autonomous exploration service (headless)
+  drone-exploration:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: drone-exploration:latest
+    container_name: drone-exploration-headless
+    command: headless
+    restart: unless-stopped
+    volumes:
+      # Persist Q-learning data and metrics
+      - ./q_table.npy:/drone_ws/q_table.npy:rw
+      - ./metrics:/drone_ws/metrics:rw
+      - ./log:/drone_ws/log:rw
+    environment:
+      - ROS_DOMAIN_ID=0
+      - GAZEBO_MASTER_URI=http://localhost:11345
+      - GAZEBO_MODEL_DATABASE_URI=http://models.gazebosim.org
+    networks:
+      - drone-network
+    stdin_open: true
+    tty: true
+
+  # GUI-enabled service with VNC access
+  drone-exploration-gui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: drone-exploration:latest
+    container_name: drone-exploration-gui
+    command: gui
+    restart: unless-stopped
+    ports:
+      - "5900:5900"  # VNC port
+      - "6080:6080"  # noVNC web interface
+    volumes:
+      # Persist Q-learning data and metrics
+      - ./q_table.npy:/drone_ws/q_table.npy:rw
+      - ./metrics:/drone_ws/metrics:rw
+      - ./log:/drone_ws/log:rw
+    environment:
+      - ROS_DOMAIN_ID=0
+      - DISPLAY=:1
+      - GAZEBO_MASTER_URI=http://localhost:11345
+      - GAZEBO_MODEL_DATABASE_URI=http://models.gazebosim.org
+    networks:
+      - drone-network
+    stdin_open: true
+    tty: true
+    profiles:
+      - gui
+
+  # Development environment
+  drone-development:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: drone-exploration:latest
+    container_name: drone-exploration-dev
+    command: bash
+    restart: "no"
+    volumes:
+      # Mount entire workspace for development
+      - .:/drone_ws:rw
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - ROS_DOMAIN_ID=0
+      - DISPLAY=${DISPLAY}
+      - GAZEBO_MASTER_URI=http://localhost:11345
+      - GAZEBO_MODEL_DATABASE_URI=http://models.gazebosim.org
+    networks:
+      - drone-network
+    stdin_open: true
+    tty: true
+    profiles:
+      - dev
+
+networks:
+  drone-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  drone_metrics:
+    driver: local
+  drone_logs:
+    driver: local

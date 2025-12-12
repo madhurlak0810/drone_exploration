@@ -1,0 +1,80 @@
+# .dockerignore - Exclude unnecessary files from Docker build context
+
+# Build directories
+build/
+install/
+log/
+.catkin_tools/
+.colcon_build/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ROS logs
+*.log
+.ros/
+
+# Backup and temporary files
+*.bak
+*.tmp
+*.temp
+*~
+.#*
+#*#
+
+# Git files (we want clean container)
+.git/
+.gitignore
+
+# Documentation source (keep only final docs)
+docs/source/
+*.md.backup
+
+# Test results and coverage
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Large binary files (except essential ones)
+*.bag
+*.mp4
+*.avi
+*.mov
+
+# Keep essential files
+!q_table.npy
+!metrics/
+!launch_final.sh
+!README.md
