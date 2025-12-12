@@ -1,1 +1,0 @@
-/home/maddy/drone_ws/src/drone_rl/launch/sim_launch.py
