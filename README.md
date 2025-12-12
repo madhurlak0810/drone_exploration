@@ -55,7 +55,11 @@ This system combines:
 ### **1. Quick Start for Evaluators**
 
 ```bash
-# Single command deployment
+# Option A: Pull pre-built image (fastest)
+docker pull madhurlak/drone-exploration:latest
+docker run -p 5900:5900 -p 6080:6080 madhurlak/drone-exploration:latest gui
+
+# Option B: Clone and build locally
 git clone https://github.com/madhurlak0810/drone_exploration.git
 cd drone_exploration
 
@@ -192,7 +196,11 @@ drone_ws/
 ### **Evaluation Commands**
 
 ```bash
-# Quick evaluation start
+# Quick evaluation start (pre-built image)
+docker pull madhurlak/drone-exploration:latest
+docker run -p 5900:5900 -p 6080:6080 madhurlak/drone-exploration:latest gui
+
+# Alternative: Clone and build
 git clone https://github.com/madhurlak0810/drone_exploration.git
 cd drone_exploration
 ./docker_run.sh build && ./docker_run.sh gui
@@ -485,17 +493,17 @@ Recent test results (14-minute exploration):
 
 ### **Quick Evaluation Workflow**
 ```bash
-# 1. Clone and enter directory
-git clone https://github.com/madhurlak0810/drone_exploration.git
-cd drone_exploration
+# 1. Pull pre-built image (fastest - recommended)
+docker pull madhurlak/drone-exploration:latest
 
-# 2. Build (5-10 minutes, one-time setup)
-./docker_run.sh build
+# 2. Run with visualization (immediate)
+docker run -p 5900:5900 -p 6080:6080 madhurlak/drone-exploration:latest gui
 
-# 3. Run with visualization (immediate)
-./docker_run.sh gui
+# Alternative: Clone and build locally
+# git clone https://github.com/madhurlak0810/drone_exploration.git
+# cd drone_exploration && ./docker_run.sh build && ./docker_run.sh gui
 
-# 4. Access web interface
+# 3. Access web interface
 # Open browser: http://localhost:6080
 # Watch autonomous exploration in real-time
 ```

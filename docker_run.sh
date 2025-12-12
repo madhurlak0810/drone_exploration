@@ -41,6 +41,14 @@ check_docker() {
     fi
 }
 
+# Function to pull the Docker image from Docker Hub
+pull_image() {
+    print_status "Pulling drone exploration Docker image from Docker Hub..."
+    docker pull madhurlak/drone-exploration:latest
+    docker tag madhurlak/drone-exploration:latest ${IMAGE_NAME}:${IMAGE_TAG}
+    print_status "Docker image pulled and tagged successfully!"
+}
+
 # Function to build the Docker image
 build_image() {
     print_status "Building drone exploration Docker image..."
@@ -161,7 +169,8 @@ show_usage() {
     echo "Usage: $0 [COMMAND]"
     echo ""
     echo "Commands:"
-    echo "  build     - Build the Docker image"
+    echo "  pull      - Pull pre-built image from Docker Hub"
+    echo "  build     - Build the Docker image locally"
     echo "  run       - Run headless exploration (default)"
     echo "  gui       - Run with GUI access (VNC)"
     echo "  dev       - Start development environment"
@@ -172,8 +181,8 @@ show_usage() {
     echo "  status    - Show container status"
     echo ""
     echo "Examples:"
+    echo "  $0 pull && $0 gui     - Pull and run with GUI"
     echo "  $0 build && $0 run    - Build and run headless"
-    echo "  $0 gui                - Start with GUI access"
     echo "  $0 logs              - View current logs"
     echo "  $0 clean             - Full cleanup"
     echo ""
@@ -212,6 +221,9 @@ show_status() {
 check_docker
 
 case "${1:-run}" in
+    "pull")
+        pull_image
+        ;;
     "build")
         build_image
         ;;
