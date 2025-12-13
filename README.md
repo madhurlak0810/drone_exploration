@@ -185,6 +185,45 @@ drone_ws/
 
 ---
 
+## Exploration Worlds
+
+The system includes four different Gazebo worlds for comprehensive evaluation:
+
+### **Available Worlds**
+
+| World | Description | Use Case |
+|-------|-------------|----------|
+| `exploration` | Original mixed obstacle environment | Standard evaluation and testing |
+| `maze` | Maze-like layout with narrow corridors | Navigation in constrained spaces |
+| `rooms` | Multi-room structure with distinct chambers | Room-to-room exploration |
+| `scattered` | Random obstacle distribution | Varied exploration patterns |
+
+### **World Selection**
+
+```bash
+# View available worlds
+./select_world.sh
+
+# Switch to specific world
+./select_world.sh maze        # Maze environment
+./select_world.sh rooms       # Multi-room structure  
+./select_world.sh scattered   # Random distribution
+./select_world.sh exploration # Original world
+
+# Launch with selected world
+./launch_final.sh             # Native execution
+./docker_run.sh build && ./docker_run.sh gui  # Docker execution
+```
+
+### **World Characteristics**
+- **Common Features**: All worlds use identical obstacle types (boxes, cylinders)
+- **Boundary**: 20m x 20m enclosed area with walls
+- **Spawn Point**: Center position (0,0,1) for consistent testing
+- **Physics**: Standard Gazebo physics with realistic collision detection
+- **Lighting**: Ambient and directional lighting for sensor simulation
+
+---
+
 ## Evaluation Environment
 
 ### **Docker Specification**
@@ -204,6 +243,11 @@ docker run -p 5900:5900 -p 6080:6080 madhurlak/drone-exploration:latest gui
 git clone https://github.com/madhurlak0810/drone_exploration.git
 cd drone_exploration
 ./docker_run.sh build && ./docker_run.sh gui
+
+# For different exploration worlds
+./select_world.sh maze       # Switch to maze world
+./docker_run.sh build        # Rebuild with new world
+./docker_run.sh gui          # Launch with maze environment
 
 # Direct Docker commands (alternative)
 docker build -t drone-exploration .

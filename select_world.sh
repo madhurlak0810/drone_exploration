@@ -76,7 +76,7 @@ update_launch_script() {
     cp "$LAUNCH_FILE" "${LAUNCH_FILE}.backup"
     
     # Update the world file reference in launch script
-    sed -i "s/exploration_world\.world/${world_file}/g" "$LAUNCH_FILE"
+    sed -i "s/[a-z_]*_world\.world/${world_file}/g" "$LAUNCH_FILE"
     
     print_status "Launch script updated successfully!"
     print_info "World: $world_name"
