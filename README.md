@@ -1,4 +1,4 @@
-# Autonomous Drone Exploration Workspace
+# Autonomous Robot Exploration Workspace
 
 [![ROS2](https://img.shields.io/badge/ROS2-Humble-blue.svg)](https://docs.ros.org/en/humble/)
 [![Python](https://img.shields.io/badge/Python-3.10+-green.svg)](https://python.org)
@@ -6,7 +6,7 @@
 [![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](https://docker.com)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**Evaluation-Ready Docker Container for Autonomous Drone Exploration**
+**Evaluation-Ready Docker Container for Autonomous Robot Exploration**
 
 A complete containerized autonomous drone exploration system using **Q-Learning reinforcement learning** and **SLAM mapping** for unknown environment discovery. Built specifically for evaluation environments with Docker and X11 forwarding support.
 
