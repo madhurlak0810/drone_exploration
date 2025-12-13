@@ -7,9 +7,9 @@ echo "Creating one-time map snapshot..."
 pkill -f rviz2
 sleep 2
 
-# Use default domain
-unset ROS_DOMAIN_ID
-export ROS_DOMAIN_ID=0
+# Use the same domain as the main system
+# Don't override ROS_DOMAIN_ID, inherit from environment
+# export ROS_DOMAIN_ID=0
 
 cd /home/maddy/drone_ws
 source install/setup.bash
@@ -55,8 +55,6 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Best Effort
         Value: /map
-      Update Topic:
-        Value: ""
       Use Timestamp: false
       Value: true
 
@@ -64,7 +62,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Fixed Frame: map
-    Frame Rate: 5
+    Frame Rate: 1
   Name: root
   Tools:
     - Class: rviz_default_plugins/Interact
