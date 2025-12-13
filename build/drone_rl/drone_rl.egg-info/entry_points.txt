@@ -1,0 +1,5 @@
+[console_scripts]
+environment_interface = drone_rl.environment_interface:main
+exploration_metrics = drone_rl.exploration_metrics:main
+q_learning_agent = drone_rl.q_learning_agent:main
+

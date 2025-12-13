@@ -23,7 +23,7 @@ export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:$(pwd)/install/drone_rl/share/drone_
 echo "Step 1: Launching Gazebo World..."
 # Start Gazebo server with ROS factory plugins (headless for stability)
 echo "   Using headless mode to avoid GUI crashes..."
-ros2 launch gazebo_ros gazebo.launch.py gui:=false world:=install/drone_rl/share/drone_rl/worlds/maze_world.world &
+ros2 launch gazebo_ros gazebo.launch.py gui:=false world:=install/drone_rl/share/drone_rl/worlds/rooms_world.world &
 GAZEBO_PID=$!
 
 # Give Gazebo time to initialize
