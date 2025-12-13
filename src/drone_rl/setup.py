@@ -13,7 +13,7 @@ setup(
         ('share/' + package_name + '/launch', ['launch/sim_launch.py', 'launch/test_launch.py']),
         ('share/' + package_name + '/config', ['config/drone_config.yaml', 'config/drone_exploration_robust.rviz']),
         ('share/' + package_name + '/urdf', ['urdf/drone.urdf.xacro', 'urdf/drone_simple.urdf']),
-        ('share/' + package_name + '/worlds', ['worlds/exploration_world.world']),
+        ('share/' + package_name + '/worlds', ['worlds/exploration_world.world', 'worlds/maze_world.world', 'worlds/rooms_world.world', 'worlds/scattered_world.world']),
         ('share/' + package_name + '/scripts', ['scripts/quick_start.sh']),
     ],
     install_requires=['setuptools'],
